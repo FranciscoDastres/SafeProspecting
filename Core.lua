@@ -6,12 +6,16 @@ local eventFrame
 local loginHandled = false
 
 local function IsSupportedClient()
+    if WOW_PROJECT_MISTS_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC then
+        return true
+    end
+
     if WOW_PROJECT_BURNING_CRUSADE_CLASSIC then
         return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
     end
 
     local interfaceVersion = select(4, GetBuildInfo())
-    return interfaceVersion == 20505
+    return interfaceVersion == 20505 or (interfaceVersion >= 50500 and interfaceVersion < 50600)
 end
 
 function Addon:OnTargetsChanged()
