@@ -1,8 +1,9 @@
 local _, NS = ...
 
 -- Probabilities are approximate per-prospect chances from public Classic/TBC
--- prospecting tables. They describe the chance for each listed result to
--- appear, not a mutually exclusive distribution that sums to 100%.
+-- and Mists Classic prospecting tables. They describe the chance for each
+-- listed result to appear, not a mutually exclusive distribution that sums to
+-- 100%.
 
 local I = {
     COPPER_ORE = 2770,
@@ -12,6 +13,10 @@ local I = {
     THORIUM_ORE = 10620,
     FEL_IRON_ORE = 23424,
     ADAMANTITE_ORE = 23425,
+    GHOST_IRON_ORE = 72092,
+    KYPARITE = 72093,
+    BLACK_TRILLIUM_ORE = 72094,
+    WHITE_TRILLIUM_ORE = 72103,
 
     TIGERSEYE = 818,
     MALACHITE = 774,
@@ -39,14 +44,27 @@ local I = {
     STAR_OF_ELUNE = 23438,
     NIGHTSEYE = 23441,
     ADAMANTITE_POWDER = 24243,
+    TIGER_OPAL = 76130,
+    PRIMORDIAL_RUBY = 76131,
+    LAPIS_LAZULI = 76133,
+    SUNSTONE = 76134,
+    ROGUESTONE = 76135,
+    PANDARIAN_GARNET = 76136,
+    ALEXANDRITE = 76137,
+    RIVERS_HEART = 76138,
+    WILD_JADE = 76139,
+    VERMILION_ONYX = 76140,
+    IMPERIAL_AMETHYST = 76141,
+    SUNS_RADIANCE = 76142,
+    SPARKLING_SHARD = 90407,
 }
 
-local function outcome(itemID, chance)
+local function outcome(itemID, chance, minQuantity, maxQuantity)
     return {
         itemID = itemID,
         chance = chance,
-        minQuantity = 1,
-        maxQuantity = 1,
+        minQuantity = minQuantity or 1,
+        maxQuantity = maxQuantity or minQuantity or 1,
     }
 end
 
@@ -130,6 +148,66 @@ local ores = {
         outcome(I.STAR_OF_ELUNE, 3),
         outcome(I.NIGHTSEYE, 3),
     }),
+    ore(I.GHOST_IRON_ORE, 500, {
+        outcome(I.TIGER_OPAL, 19.45),
+        outcome(I.PRIMORDIAL_RUBY, 3.93),
+        outcome(I.LAPIS_LAZULI, 19.26),
+        outcome(I.SUNSTONE, 18.69),
+        outcome(I.ROGUESTONE, 18.94),
+        outcome(I.PANDARIAN_GARNET, 19.04),
+        outcome(I.ALEXANDRITE, 19.03),
+        outcome(I.RIVERS_HEART, 4.19),
+        outcome(I.WILD_JADE, 3.43),
+        outcome(I.VERMILION_ONYX, 3.86),
+        outcome(I.IMPERIAL_AMETHYST, 3.31),
+        outcome(I.SUNS_RADIANCE, 3.57),
+        outcome(I.SPARKLING_SHARD, 82.08, 1, 2),
+    }),
+    ore(I.KYPARITE, 550, {
+        outcome(I.TIGER_OPAL, 18.29),
+        outcome(I.PRIMORDIAL_RUBY, 3.25),
+        outcome(I.LAPIS_LAZULI, 17.92),
+        outcome(I.SUNSTONE, 18.34),
+        outcome(I.ROGUESTONE, 19.78),
+        outcome(I.PANDARIAN_GARNET, 21.02),
+        outcome(I.ALEXANDRITE, 18.84),
+        outcome(I.RIVERS_HEART, 3.29),
+        outcome(I.WILD_JADE, 3.90),
+        outcome(I.VERMILION_ONYX, 4.13),
+        outcome(I.IMPERIAL_AMETHYST, 4.63),
+        outcome(I.SUNS_RADIANCE, 4.79),
+        outcome(I.SPARKLING_SHARD, 98.40, 1, 2),
+    }),
+    ore(I.BLACK_TRILLIUM_ORE, 600, {
+        outcome(I.TIGER_OPAL, 10.87),
+        outcome(I.PRIMORDIAL_RUBY, 12.73),
+        outcome(I.LAPIS_LAZULI, 12.96),
+        outcome(I.SUNSTONE, 14.72),
+        outcome(I.ROGUESTONE, 16.17),
+        outcome(I.PANDARIAN_GARNET, 12.01),
+        outcome(I.ALEXANDRITE, 14.15),
+        outcome(I.RIVERS_HEART, 15.29),
+        outcome(I.WILD_JADE, 13.02),
+        outcome(I.VERMILION_ONYX, 19.03),
+        outcome(I.IMPERIAL_AMETHYST, 12.73),
+        outcome(I.SUNS_RADIANCE, 15.70),
+        outcome(I.SPARKLING_SHARD, 95.45, 1, 2),
+    }),
+    ore(I.WHITE_TRILLIUM_ORE, 600, {
+        outcome(I.TIGER_OPAL, 15.20),
+        outcome(I.PRIMORDIAL_RUBY, 14.46),
+        outcome(I.LAPIS_LAZULI, 13.82),
+        outcome(I.SUNSTONE, 15.85),
+        outcome(I.ROGUESTONE, 14.78),
+        outcome(I.PANDARIAN_GARNET, 14.88),
+        outcome(I.ALEXANDRITE, 9.96),
+        outcome(I.RIVERS_HEART, 14.54),
+        outcome(I.WILD_JADE, 11.42),
+        outcome(I.VERMILION_ONYX, 11.35),
+        outcome(I.IMPERIAL_AMETHYST, 12.56),
+        outcome(I.SUNS_RADIANCE, 11.37),
+        outcome(I.SPARKLING_SHARD, 96.71, 1, 2),
+    }),
 }
 
 local oresByItemID = {}
@@ -149,8 +227,8 @@ NS.Data = {
     OresByItemID = oresByItemID,
     Materials = materials,
     Source = {
-        name = "Classic/TBC prospecting tables",
-        reviewed = "2026-06-25",
+        name = "Classic/TBC/Mists prospecting tables",
+        reviewed = "2026-06-26",
         probabilitiesAreApproximate = true,
     },
 }
