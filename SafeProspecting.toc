@@ -1,10 +1,10 @@
-## Interface: 20505
+## Interface: 20505, 50504
 ## Title: SafeProspecting
-## Notes: Manual-assisted prospecting for TBC Classic Anniversary.
-## Notes-esES: Prospeccion manual asistida para TBC Classic Anniversary.
-## Notes-esMX: Prospeccion manual asistida para TBC Classic Anniversary.
+## Notes: Manual-assisted prospecting for TBC Classic Anniversary and Mists Classic.
+## Notes-esES: Prospeccion manual asistida para TBC Classic Anniversary y Mists Classic.
+## Notes-esMX: Prospeccion manual asistida para TBC Classic Anniversary y Mists Classic.
 ## Author: SafeProspecting contributors
-## Version: 0.1.0
+## Version: 0.2.0
 ## SavedVariables: SafeProspectingDB
 ## IconTexture: Interface\Icons\INV_Misc_Gem_BloodGem_01
 ## Category: Professions
