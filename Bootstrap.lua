@@ -1,7 +1,7 @@
 local addonName, NS = ...
 
 NS.ADDON_NAME = addonName
-NS.VERSION = "0.1.0"
+NS.VERSION = "0.2.0"
 NS.PROSPECTING_SPELL_ID = 31252
 NS.MIN_ORE_STACK = 5
 
