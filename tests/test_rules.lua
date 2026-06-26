@@ -20,6 +20,12 @@ equal(adamantiteResults[1].itemID, 24243, "adamantite can yield powder")
 equal(adamantiteResults[1].chance, 65, "adamantite powder chance")
 equal(namespace.Rules.GetOutcomes(23426), nil, "khorium is not prospectable")
 
+local ghostIronResults = namespace.Rules.GetOutcomes(72092)
+equal(#ghostIronResults, 13, "ghost iron has Mists outcomes")
+equal(ghostIronResults[1].itemID, 76130, "ghost iron can yield Tiger Opal")
+equal(ghostIronResults[13].itemID, 90407, "ghost iron can yield Sparkling Shards")
+equal(ghostIronResults[13].maxQuantity, 2, "sparkling shards can stack to two")
+
 local profile = {
     enabled = true,
     protectedItemIDs = {},
@@ -33,6 +39,11 @@ local candidate = {
 
 equal(namespace.Rules.EvaluateCandidate(candidate, profile), true, "valid adamantite stack")
 equal(candidate.requiredSkill, 325, "required skill attached")
+
+candidate.itemID = 72092
+equal(namespace.Rules.EvaluateCandidate(candidate, profile), true, "valid ghost iron stack")
+equal(candidate.requiredSkill, 500, "Mists required skill attached")
+candidate.itemID = 23425
 
 candidate.stackCount = 4
 local eligible, reason = namespace.Rules.EvaluateCandidate(candidate, profile)
