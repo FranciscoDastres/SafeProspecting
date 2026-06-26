@@ -1,9 +1,10 @@
 # SafeProspecting
 
 SafeProspecting is a manual-assisted prospecting addon for **WoW: The Burning
-Crusade Classic Anniversary 2.5.5** (`Interface 20505`). It scans the player's
-bags, marks prospectable ore stacks, adds approximate gem chances to ore
-tooltips, and exposes one secure action for the stack currently shown.
+Crusade Classic Anniversary 2.5.5** (`Interface 20505`) and **WoW: Mists of
+Pandaria Classic** (`Interface 50504`). It scans the player's bags, marks
+prospectable ore stacks, adds approximate gem chances to ore tooltips, and
+exposes one secure action for the stack currently shown.
 
 ## Safety model
 
@@ -28,6 +29,10 @@ The addon marks stacks of 5 or more of these ores:
 - Thorium Ore
 - Fel Iron Ore
 - Adamantite Ore
+- Ghost Iron Ore
+- Kyparite
+- Black Trillium Ore
+- White Trillium Ore
 
 Silver, Gold, Truesilver, Dark Iron, Khorium, Eternium, quest ores, and other
 non-whitelisted ores are not marked.
@@ -38,6 +43,13 @@ Copy the complete `SafeProspecting` directory to:
 
 ```text
 World of Warcraft/_anniversary_/Interface/AddOns/SafeProspecting
+```
+
+For Mists of Pandaria Classic, use the active MoP Classic AddOns directory, for
+example:
+
+```text
+World of Warcraft/_mists_/Interface/AddOns/SafeProspecting
 ```
 
 The final directory must contain `SafeProspecting.toc` and the bundled `Libs`
@@ -63,11 +75,12 @@ lua tests/test_rules.lua
 lua tests/test_scanner.lua
 ```
 
-All protected behavior still requires an in-game test on TBC Anniversary.
+All protected behavior still requires an in-game test on TBC Anniversary and
+Mists of Pandaria Classic.
 
 ## Data provenance
 
 The ore list, skill requirements, result item IDs, and approximate probabilities
-were reviewed on 2026-06-25 against public Classic/TBC prospecting references.
-No third-party addon code or assets are included. Item names are never hardcoded;
-WoW resolves them from item IDs in the active locale.
+were reviewed on 2026-06-26 against public Classic/TBC/Mists prospecting
+references. No third-party addon code or assets are included. Item names are
+never hardcoded; WoW resolves them from item IDs in the active locale.
