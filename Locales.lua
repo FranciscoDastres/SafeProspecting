@@ -43,7 +43,7 @@ local english = {
     MSG_SUCCESS = "Prospecting completed: %s",
     MSG_FAILED = "Prospecting did not complete; the ore remains queued.",
     MSG_TIMEOUT = "No result was confirmed; the ore remains queued.",
-    MSG_UNSUPPORTED = "This build targets TBC Classic Anniversary 2.5.5 (Interface 20505). Protected actions are disabled on this client.",
+    MSG_UNSUPPORTED = "This build targets TBC Classic Anniversary 2.5.5 or Mists of Pandaria Classic 5.5.x. Protected actions are disabled on this client.",
     MSG_PANEL_COMBAT = "The action panel cannot be shown or hidden during combat.",
     MSG_HELP = "Commands: /safeprospecting config, /safeprospecting rescan, /safeprospecting show, /safeprospecting hide, /safeprospecting toggle",
 }
@@ -91,7 +91,7 @@ local spanish = {
     MSG_SUCCESS = "Prospeccion completada: %s",
     MSG_FAILED = "La prospeccion no se completo; la mena permanece en la cola.",
     MSG_TIMEOUT = "No se confirmo el resultado; la mena permanece en la cola.",
-    MSG_UNSUPPORTED = "Esta version apunta a TBC Classic Anniversary 2.5.5 (Interface 20505). Las acciones protegidas estan desactivadas en este cliente.",
+    MSG_UNSUPPORTED = "Esta version apunta a TBC Classic Anniversary 2.5.5 o Mists of Pandaria Classic 5.5.x. Las acciones protegidas estan desactivadas en este cliente.",
     MSG_PANEL_COMBAT = "El panel de accion no se puede mostrar u ocultar durante combate.",
     MSG_HELP = "Comandos: /safeprospecting config, /safeprospecting rescan, /safeprospecting show, /safeprospecting hide, /safeprospecting toggle",
 }
